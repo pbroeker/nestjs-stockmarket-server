@@ -1,5 +1,5 @@
 import { Column, Model, Table, HasMany, DataType } from 'sequelize-typescript';
-import { Stock } from '../stocks/stock.model';
+import { Stock } from '../stocks/stock.entity';
 
 @Table
 export class User extends Model<User> {
@@ -11,7 +11,9 @@ export class User extends Model<User> {
   })
   user_id: number;
 
-  @Column
+  @Column({
+    type: DataType.STRING,
+  })
   firstName: string;
 
   @Column({

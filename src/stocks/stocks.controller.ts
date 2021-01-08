@@ -10,11 +10,11 @@ export class StocksController {
 
   @Post('buy')
   buyStocks(@Body() tradeStocksDto: TradeStocksDto): string {
-    return `Bought stocks. Name: ${tradeStocksDto.stockSymbol}, number: ${tradeStocksDto.shares}, price: ${tradeStocksDto.price}, date: ${tradeStocksDto.date}.`;
+    return `Bought stocks. Name: ${tradeStocksDto.stockSymbol}, shares: ${tradeStocksDto.shares}, price: ${tradeStocksDto.price}.`;
   }
 
   @Post('sell')
   sellStocks(@Body() tradeStocksDto: TradeStocksDto): string {
-    return `Sold stocks. Name: ${tradeStocksDto.stockSymbol}, number: ${tradeStocksDto.shares}, price: ${tradeStocksDto.price}, date: ${tradeStocksDto.date}.`;
+    return `Sold stocks. Name: ${tradeStocksDto.stockSymbol}, shares: ${tradeStocksDto.shares}, price: ${tradeStocksDto.price}.`;
   }
 }

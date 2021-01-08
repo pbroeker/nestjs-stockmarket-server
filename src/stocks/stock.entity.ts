@@ -7,28 +7,33 @@ import {
   Table,
   ForeignKey,
 } from 'sequelize-typescript';
-import { User } from 'src/users/user.model';
+import { User } from 'src/users/user.entity';
 
 @Table
 export class Stock extends Model<Stock> {
   @ForeignKey(() => User)
-  @Column
+  @Column({
+    type: DataType.INTEGER,
+  })
   user_id: number;
 
   @BelongsTo(() => User)
   user: User;
 
-  @Column
+  @Column({
+    type: DataType.STRING,
+  })
   stockSymbol: string;
 
-  @Column
+  @Column({
+    type: DataType.INTEGER,
+  })
   shares: number;
 
-  @Column
+  @Column({
+    type: DataType.INTEGER,
+  })
   price: number;
-
-  @Column
-  date: string;
 
   @CreatedAt
   creationDate: Date;
