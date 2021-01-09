@@ -16,7 +16,7 @@ export class UserController {
   constructor(private readonly userService: UsersService) {}
 
   @Post('register')
-  async create(@Body() userData: CreateUserDto) {
+  create(@Body() userData: CreateUserDto) {
     return this.userService.createOne(userData);
   }
 
@@ -26,17 +26,17 @@ export class UserController {
   }
 
   @Get(':id')
-  findOne(@Param('id') id) {
+  findOne(@Param('id') id: number) {
     return this.userService.findOne(id);
   }
 
-  @Put()
-  change(@Body() { firstName, lastName, email }: CreateUserDto): string {
-    return `Userdata changed with: ${firstName}, ${lastName}, ${email}`;
+  @Put(':id')
+  change(@Param('id') id: number, @Body() userData: CreateUserDto) {
+    return this.userService.changeOne(id, userData);
   }
 
   @Delete(':id')
-  deleteOne(@Param('id') id): string {
-    return `User with id ${id} was deleted.`;
+  deleteOne(@Param('id') id: number) {
+    return this.userService.deleteOne(id);
   }
 }

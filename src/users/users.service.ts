@@ -20,4 +20,19 @@ export class UsersService {
   async createOne(userData: CreateUserDto): Promise<User> {
     return await this.userRepository.create(userData);
   }
+
+  async changeOne(
+    id: number,
+    userData: CreateUserDto,
+  ): Promise<[number, User[]]> {
+    return await this.userRepository.update(userData, {
+      where: { user_id: id },
+    });
+  }
+
+  async deleteOne(id: number): Promise<number> {
+    return await this.userRepository.destroy({
+      where: { user_id: id },
+    });
+  }
 }
