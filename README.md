@@ -3,6 +3,8 @@
 
 >
 
+# A simple but clean NestJS server with Sequelize (Postgres) to learn and practise NestJS
+
 ## Description
 
 A [Nest](https://github.com/nestjs/nest) based Server for stocktrading.
